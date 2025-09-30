@@ -30,14 +30,14 @@ export class CoffeeMachine {
       cost = cost * 0.8;
     }
 
+    if (cost <= 0) {
+      return "Error: invalid price";
+    }
+
     // Loyalty card
     this.orderCount++;
     if (loyaltyCard && this.orderCount % 5 === 0 && drink.size !== "large") {
       cost = 0;
-    }
-
-    if (cost <= 0) {
-      return "Error: invalid price";
     }
 
     if (moneyInserted < cost) {
